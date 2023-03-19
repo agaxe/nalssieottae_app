@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import type { Weather } from '@/shared/types/weather';
-import { getWeatherIcon } from '@/utils/getWeatherIcon';
+import { StyleSheet, Text, View } from 'react-native';
 import { Icon } from '@/components/Icon';
 import { theme } from '@/shared/styles/theme';
+import type { Weather } from '@/shared/types/weather';
 import { getDayColor } from '@/utils/getDayColor';
+import { getWeatherIcon } from '@/utils/getWeatherIcon';
 
 interface WeatherItemProps {
   data: Weather;

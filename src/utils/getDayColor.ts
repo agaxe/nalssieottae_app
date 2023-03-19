@@ -1,5 +1,5 @@
-import type { Weather } from '@/shared/types/weather';
 import { theme } from '@/shared/styles/theme';
+import type { Weather } from '@/shared/types/weather';
 
 export const getDayColor = (day: Weather['day']) => {
   if (day === 'SAT') {

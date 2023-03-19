@@ -1,8 +1,8 @@
-import { StyleSheet, Text, ScrollView, View, FlatList } from 'react-native';
 import React, { useState } from 'react';
-import { WeatherItem } from './WeatherItem';
+import { StyleSheet, Text, ScrollView, View, FlatList } from 'react-native';
 import { Container } from '@/components/Container';
 import type { Weather } from '@/shared/types/weather';
+import { WeatherItem } from './WeatherItem';
 
 export const WeatherList = () => {
   const [weathers, setWeathers] = useState<Weather[]>([

@@ -1,9 +1,9 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { theme } from '@/shared/styles/theme';
-import { Icon } from '@/components/Icon';
-import { getWeatherIcon } from '@/utils/getWeatherIcon';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { weatherDetails } from '@/screens/HomeScreens/data';
+import { Icon } from '@/components/Icon';
+import { theme } from '@/shared/styles/theme';
+import { getWeatherIcon } from '@/utils/getWeatherIcon';
 
 export const Weather = () => {
   return (

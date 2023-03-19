@@ -1,6 +1,6 @@
 import React from 'react';
-import { SvgXml, XmlProps } from 'react-native-svg';
 import { View, ViewStyle } from 'react-native';
+import { SvgXml, XmlProps } from 'react-native-svg';
 
 interface IconProps extends XmlProps {
   style?: ViewStyle;

@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   StyleSheet,
   SafeAreaView,
@@ -5,11 +6,10 @@ import {
   View,
   StatusBar,
 } from 'react-native';
-import React from 'react';
-import { Weather } from './components/Weather';
-import { bgImage } from './data';
 import { Container } from '@/components/Container';
+import { Weather } from './components/Weather';
 import { WeatherList } from './components/WeatherList';
+import { bgImage } from './data';
 
 export const HomeScreen = () => {
   return (

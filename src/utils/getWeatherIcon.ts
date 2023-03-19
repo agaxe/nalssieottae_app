@@ -1,13 +1,13 @@
-import Sun from '@/assets/icons/sun.svg';
-import CloudSun from '@/assets/icons/cloud-sun.svg';
-import Cloudy from '@/assets/icons/cloudy.svg';
-import Clouds from '@/assets/icons/clouds.svg';
-import CloudDrizzle from '@/assets/icons/cloud-drizzle.svg';
-import CloudRain from '@/assets/icons/cloud-rain.svg';
-import CloudLightning from '@/assets/icons/cloud-lightning.svg';
-import CloudSnow from '@/assets/icons/cloud-snow.svg';
-import CloudHaze from '@/assets/icons/cloud-haze.svg';
 import { SvgProps } from 'react-native-svg';
+import CloudDrizzle from '@/assets/icons/cloud-drizzle.svg';
+import CloudHaze from '@/assets/icons/cloud-haze.svg';
+import CloudLightning from '@/assets/icons/cloud-lightning.svg';
+import CloudRain from '@/assets/icons/cloud-rain.svg';
+import CloudSnow from '@/assets/icons/cloud-snow.svg';
+import CloudSun from '@/assets/icons/cloud-sun.svg';
+import Clouds from '@/assets/icons/clouds.svg';
+import Cloudy from '@/assets/icons/cloudy.svg';
+import Sun from '@/assets/icons/sun.svg';
 
 export const getWeatherIcon = (id: string) => {
   const weatherIcons: Record<string, React.FC<SvgProps>> = {

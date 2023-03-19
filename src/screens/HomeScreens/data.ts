@@ -1,6 +1,6 @@
 import ArrowDownUpIcon from '@/assets/icons/arrow-down-up.svg';
-import WindIcon from '@/assets/icons/wind.svg';
 import waterDropIcon from '@/assets/icons/water-drop.svg';
+import WindIcon from '@/assets/icons/wind.svg';
 
 interface WeatherDetail {
   name: string;
