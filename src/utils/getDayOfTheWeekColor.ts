@@ -1,7 +1,7 @@
 import { theme } from '@/shared/styles/theme';
-import type { Weather } from '@/shared/types/weather';
+import type { DailyWeather } from '@/shared/types/dailyWeather';
 
-export const getDayColor = (day: Weather['day']) => {
+export const getDayOfTheWeekColor = (day: DailyWeather['dayWeek']) => {
   if (day === 'SAT') {
     return theme.blue;
   }

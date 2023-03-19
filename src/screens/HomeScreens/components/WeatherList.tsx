@@ -1,53 +1,23 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, ScrollView, View, FlatList } from 'react-native';
-import { Container } from '@/components/Container';
-import type { Weather } from '@/shared/types/weather';
+import React from 'react';
+import { StyleSheet, View, FlatList } from 'react-native';
+import type { DailyWeather } from '@/shared/types/dailyWeather';
 import { WeatherItem } from './WeatherItem';
 
-export const WeatherList = () => {
-  const [weathers, setWeathers] = useState<Weather[]>([
-    {
-      day: 'MON',
-      iconId: '02',
-      temp: 21,
-    },
-    {
-      day: 'TUE',
-      iconId: '02',
-      temp: 21,
-    },
-    {
-      day: 'WED',
-      iconId: '02',
-      temp: 21,
-    },
-    {
-      day: 'THU',
-      iconId: '02',
-      temp: 21,
-    },
-    {
-      day: 'FRI',
-      iconId: '02',
-      temp: 21,
-    },
-    {
-      day: 'SAT',
-      iconId: '02',
-      temp: 21,
-    },
-  ]);
+interface WeatherListProps {
+  data: DailyWeather[];
+}
 
+export const WeatherList = ({ data = [] }: WeatherListProps) => {
   return (
     <View style={styles.container}>
       <FlatList
         horizontal
         contentContainerStyle={styles.weatherList}
-        data={weathers}
+        data={data}
         renderItem={({ item, index }) => (
           <WeatherItem data={item} index={index} />
         )}
-        keyExtractor={item => item.day}
+        keyExtractor={item => item.dayWeek}
         showsHorizontalScrollIndicator={false}
       />
     </View>
@@ -56,7 +26,5 @@ export const WeatherList = () => {
 
 const styles = StyleSheet.create({
   container: {},
-  weatherList: {
-    //height: 100,
-  },
+  weatherList: {},
 });

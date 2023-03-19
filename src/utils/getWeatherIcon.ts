@@ -10,6 +10,8 @@ import Cloudy from '@/assets/icons/cloudy.svg';
 import Sun from '@/assets/icons/sun.svg';
 
 export const getWeatherIcon = (id: string) => {
+  const weatherCode = `${id}`.replace(/\D/g, '');
+
   const weatherIcons: Record<string, React.FC<SvgProps>> = {
     '01': Sun,
     '02': CloudSun,
@@ -22,5 +24,5 @@ export const getWeatherIcon = (id: string) => {
     '50': CloudHaze,
   };
 
-  return String(weatherIcons[id]);
+  return String(weatherIcons[weatherCode]);
 };

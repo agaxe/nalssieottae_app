@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   StyleSheet,
   SafeAreaView,
@@ -7,11 +7,38 @@ import {
   StatusBar,
 } from 'react-native';
 import { Container } from '@/components/Container';
+import type { Coords } from '@/shared/types/coords';
+import type { CurrentWeather } from '@/shared/types/currentWeather';
+import type { DailyWeather } from '@/shared/types/dailyWeather';
+import { getCurrentLocationCoords } from '@/utils/getCurrentLocationCoords';
+import { getWeatherFromCoords } from '@/utils/getWeatherFromCoords';
 import { Weather } from './components/Weather';
 import { WeatherList } from './components/WeatherList';
 import { bgImage } from './data';
 
 export const HomeScreen = () => {
+  const [dailyWeathers, setDailyWeathers] = useState<DailyWeather[]>([]);
+  const [currentWeather, setCurrentWeather] = useState<CurrentWeather>({
+    icon: '',
+    temp: 0,
+    details: [],
+  });
+
+  useEffect(() => {
+    const onSuccess = async (coords: Coords) => {
+      const { current, daily } = await getWeatherFromCoords(coords);
+
+      setCurrentWeather(current);
+      setDailyWeathers(daily);
+    };
+
+    const onError = (error: Error) => {
+      console.error('error', error);
+    };
+
+    getCurrentLocationCoords(onSuccess, onError);
+  }, []);
+
   return (
     <ImageBackground
       source={bgImage}
@@ -26,8 +53,8 @@ export const HomeScreen = () => {
       <View style={styles.overlay}>
         <SafeAreaView style={styles.container}>
           <Container style={styles.containerInner}>
-            <Weather />
-            <WeatherList />
+            {currentWeather?.icon && <Weather data={currentWeather} />}
+            {dailyWeathers && <WeatherList data={dailyWeathers} />}
           </Container>
         </SafeAreaView>
       </View>

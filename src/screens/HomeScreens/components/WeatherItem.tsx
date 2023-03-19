@@ -2,12 +2,11 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Icon } from '@/components/Icon';
 import { theme } from '@/shared/styles/theme';
-import type { Weather } from '@/shared/types/weather';
-import { getDayColor } from '@/utils/getDayColor';
-import { getWeatherIcon } from '@/utils/getWeatherIcon';
+import type { DailyWeather } from '@/shared/types/dailyWeather';
+import { getDayOfTheWeekColor } from '@/utils/getDayOfTheWeekColor';
 
 interface WeatherItemProps {
-  data: Weather;
+  data: DailyWeather;
   index: number;
 }
 
@@ -30,25 +29,24 @@ export const WeatherItem = ({ data, index }: WeatherItemProps) => {
       <Text
         style={{
           ...styles.day,
-          color: getDayColor(data.day),
+          color: getDayOfTheWeekColor(data.dayWeek),
         }}>
-        {data.day}
+        {data.dayWeek}
       </Text>
       <Icon
         style={styles.icon}
         width={60}
         height={60}
-        xml={getWeatherIcon(data.iconId)}
+        xml={data.icon}
         fill={theme.white}
       />
-      <Text style={styles.temp}>{data.temp}°</Text>
+      <Text style={styles.temp}>{data.temp}</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: '#00f',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
