@@ -6,12 +6,19 @@ import type { CurrentWeather } from '@/shared/types/currentWeather';
 
 interface WeatherProps {
   data: CurrentWeather;
+  address: string;
 }
 
-export const Weather = ({ data }: WeatherProps) => {
+export const Weather = ({ data, address = '' }: WeatherProps) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.locationTitle}>서울특별시 중곡동(임시)</Text>
+      <Text
+        style={styles.locationTitle}
+        numberOfLines={2}
+        //@ts-ignore
+        lineBreakStrategyIOS="hangul-word">
+        {address}
+      </Text>
       <View style={styles.todayWeather}>
         <Text style={styles.todayWeatherIcon}>
           <Icon width={100} height={100} xml={data.icon} fill="white" />
@@ -41,6 +48,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 40,
     fontWeight: '700',
+    flexWrap: 'nowrap',
+    lineHeight: 55,
   },
   todayWeather: {
     columnGap: 24,

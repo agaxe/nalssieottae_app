@@ -10,6 +10,7 @@ import { Container } from '@/components/Container';
 import type { Coords } from '@/shared/types/coords';
 import type { CurrentWeather } from '@/shared/types/currentWeather';
 import type { DailyWeather } from '@/shared/types/dailyWeather';
+import { getAddressFromCoords } from '@/utils/getAddressFromCoords';
 import { getCurrentLocationCoords } from '@/utils/getCurrentLocationCoords';
 import { getWeatherFromCoords } from '@/utils/getWeatherFromCoords';
 import { Weather } from './components/Weather';
@@ -17,6 +18,7 @@ import { WeatherList } from './components/WeatherList';
 import { bgImage } from './data';
 
 export const HomeScreen = () => {
+  const [currentAddress, setCurrentAddress] = useState('');
   const [dailyWeathers, setDailyWeathers] = useState<DailyWeather[]>([]);
   const [currentWeather, setCurrentWeather] = useState<CurrentWeather>({
     icon: '',
@@ -26,8 +28,10 @@ export const HomeScreen = () => {
 
   useEffect(() => {
     const onSuccess = async (coords: Coords) => {
+      const address = await getAddressFromCoords(coords);
       const { current, daily } = await getWeatherFromCoords(coords);
 
+      setCurrentAddress(address);
       setCurrentWeather(current);
       setDailyWeathers(daily);
     };
@@ -53,7 +57,9 @@ export const HomeScreen = () => {
       <View style={styles.overlay}>
         <SafeAreaView style={styles.container}>
           <Container style={styles.containerInner}>
-            {currentWeather?.icon && <Weather data={currentWeather} />}
+            {currentWeather?.icon && (
+              <Weather data={currentWeather} address={currentAddress} />
+            )}
             {dailyWeathers && <WeatherList data={dailyWeathers} />}
           </Container>
         </SafeAreaView>
