@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 40,
     fontWeight: '700',
-    flexWrap: 'nowrap',
+    flexWrap: 'wrap',
     lineHeight: 55,
   },
   todayWeather: {
