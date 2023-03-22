@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     flexWrap: 'wrap',
     lineHeight: 55,
+    fontFamily: 'NotoSansKR-Bold',
   },
   todayWeather: {
     columnGap: 24,
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
   todayWeatherTemp: {
     color: theme.white,
     fontSize: 80,
-    fontWeight: '700',
+    fontFamily: 'NotoSansKR-Bold',
   },
   weatherDetailList: {
     flexDirection: 'row',
@@ -73,11 +74,13 @@ const styles = StyleSheet.create({
   },
   weatherDetailItem: {
     flexDirection: 'row',
+    alignItems: 'center',
     columnGap: 8,
   },
   weatherDetailItemValue: {
     color: theme.white,
-    fontWeight: '600',
+    //fontWeight: '600',
+    fontFamily: 'NotoSansKR-Regular',
   },
   weatherDetailItemIcon: {},
 });

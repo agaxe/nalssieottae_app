@@ -40,7 +40,7 @@ export const WeatherItem = ({ data, index }: WeatherItemProps) => {
         xml={data.icon}
         fill={theme.white}
       />
-      <Text style={styles.temp}>{data.temp}</Text>
+      <Text style={styles.temp}>{data.temp}°</Text>
     </View>
   );
 };
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   day: {
     color: theme.grey,
     alignSelf: 'flex-start',
-    fontWeight: '600',
+    fontFamily: 'NotoSansKR-Bold',
   },
   icon: {
     marginTop: 8,
@@ -66,5 +66,6 @@ const styles = StyleSheet.create({
     color: theme.white,
     fontSize: 28,
     textAlign: 'center',
+    fontFamily: 'NotoSansKR-Bold',
   },
 });
