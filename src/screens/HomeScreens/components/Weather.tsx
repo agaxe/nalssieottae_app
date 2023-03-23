@@ -42,7 +42,9 @@ export const Weather = ({ data, address = '' }: WeatherProps) => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    alignItems: 'center',
+  },
   locationTitle: {
     color: theme.white,
     textAlign: 'center',
@@ -51,6 +53,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     lineHeight: 55,
     fontFamily: 'NotoSansKR-Bold',
+    width: '88%',
   },
   todayWeather: {
     columnGap: 24,
