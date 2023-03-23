@@ -66,6 +66,8 @@ const styles = StyleSheet.create({
     color: theme.white,
     fontSize: 80,
     fontFamily: 'NotoSansKR-Bold',
+    textAlignVertical: 'center',
+    includeFontPadding: false,
   },
   weatherDetailList: {
     flexDirection: 'row',
@@ -81,6 +83,8 @@ const styles = StyleSheet.create({
     color: theme.white,
     //fontWeight: '600',
     fontFamily: 'NotoSansKR-Regular',
+    textAlignVertical: 'center',
+    includeFontPadding: false,
   },
   weatherDetailItemIcon: {},
 });

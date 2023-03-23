@@ -57,6 +57,8 @@ const styles = StyleSheet.create({
     color: theme.grey,
     alignSelf: 'flex-start',
     fontFamily: 'NotoSansKR-Bold',
+    textAlignVertical: 'center',
+    includeFontPadding: false,
   },
   icon: {
     marginTop: 8,
@@ -67,5 +69,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
     textAlign: 'center',
     fontFamily: 'NotoSansKR-Bold',
+    textAlignVertical: 'center',
+    includeFontPadding: false,
   },
 });
