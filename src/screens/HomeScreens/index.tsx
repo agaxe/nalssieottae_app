@@ -56,8 +56,6 @@ export const HomeScreen = () => {
   useEffect(() => {
     if (isPermissionModal === false) {
       const onSuccess = async (coords: Coords) => {
-        setLocationPermission('granted');
-
         const address = await getAddressFromCoords(coords);
         const { current, daily } = await getWeatherFromCoords(coords);
 
@@ -83,8 +81,8 @@ export const HomeScreen = () => {
   // 모달 확인 버튼 클릭
   const handlePressModalSubmitBtn = async () => {
     const permission = await requestLocationPermission();
-    setIsPermissionModal(false);
 
+    setIsPermissionModal(false);
     setLocationPermission(permission);
   };
 
