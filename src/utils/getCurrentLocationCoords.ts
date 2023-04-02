@@ -1,6 +1,6 @@
 import Geolocation from 'react-native-geolocation-service';
 import type { Coords } from '@/shared/types/coords';
-import { requestLocationPermission } from './requestLocationPermission';
+import { checkLocationPermission } from '@/utils/checkLocationPermission';
 
 interface Err extends Error {
   name: 'PermissionError' | 'GeolocationError';
@@ -10,7 +10,7 @@ export const getCurrentLocationCoords = async (
   onSuccess: ({ latitude, longitude }: Coords) => void,
   onError: (error: Err) => void,
 ) => {
-  const permission = await requestLocationPermission();
+  const permission = await checkLocationPermission();
 
   if (permission && permission !== 'granted') {
     const error = new Error(permission) as Err;

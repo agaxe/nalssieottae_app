@@ -35,12 +35,6 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Program requires GPS to track cars and job orders</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Program requires GPS to track cars and job orders</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Program requires GPS to track cars and job orders</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>NotoSansKR-Bold.otf</string>
@@ -60,5 +54,14 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+
+	<!--- permission -->
+  <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+  <string>YOUR TEXT</string>
+  <key>NSLocationAlwaysUsageDescription</key>
+  <string>YOUR TEXT</string>
+  <key>NSLocationWhenInUseUsageDescription</key>
+  <string>YOUR TEXT</string>
+	<!--- ~// permission -->
 </dict>
 </plist>
