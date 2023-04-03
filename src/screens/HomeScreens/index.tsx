@@ -6,8 +6,7 @@ import {
   View,
   StatusBar,
   Linking,
-  Text,
-  TouchableOpacity,
+  Alert,
 } from 'react-native';
 import { Container } from '@/components/Container';
 import type { Coords } from '@/shared/types/coords';
@@ -27,10 +26,10 @@ import { bgImage } from './data';
 export const HomeScreen = () => {
   const [isPermissionModal, setIsPermissionModal] = useState<null | boolean>(
     null,
-  ); // 권한 요청 모달 여부
+  );
   const [locationPermission, setLocationPermission] = useState<
     PermissionStatus | ''
-  >(''); // 위치 권한 결과값
+  >('');
 
   const [currentAddress, setCurrentAddress] = useState('');
   const [dailyWeathers, setDailyWeathers] = useState<DailyWeather[]>([]);
@@ -76,14 +75,31 @@ export const HomeScreen = () => {
 
       getCurrentLocationCoords(onSuccess, onError);
     }
-  }, [isPermissionModal]);
+  }, [isPermissionModal, locationPermission]);
+
+  // 권환이 거부된 경우
+  useEffect(() => {
+    if (isPermissionModal === false && locationPermission !== 'granted') {
+      Alert.alert(
+        '현재 위치를 찾을 수 없습니다',
+        '앱 설정을 통해 위치 서비스 권한을 설정할 수 있습니다.',
+        [
+          {
+            text: '취소',
+            style: 'cancel',
+          },
+          { text: '설정', onPress: () => Linking.openSettings() },
+        ],
+      );
+    }
+  }, [isPermissionModal, locationPermission]);
 
   // 모달 확인 버튼 클릭
   const handlePressModalSubmitBtn = async () => {
     const permission = await requestLocationPermission();
 
-    setIsPermissionModal(false);
     setLocationPermission(permission);
+    setIsPermissionModal(false);
   };
 
   return (
@@ -103,16 +119,6 @@ export const HomeScreen = () => {
             {isPermissionModal ? (
               <PermissionModal submitPress={handlePressModalSubmitBtn} />
             ) : null}
-            {isPermissionModal === false &&
-              locationPermission !== 'granted' && (
-                <View>
-                  <Text style={{ color: 'white' }}>{locationPermission}</Text>
-                  <Text style={{ color: 'white' }}>설정을 진행해주세요</Text>
-                  <TouchableOpacity onPress={() => Linking.openSettings()}>
-                    <Text style={{ color: 'white' }}>설정</Text>
-                  </TouchableOpacity>
-                </View>
-              )}
             {locationPermission === 'granted' && (
               <>
                 {currentWeather?.icon && (
