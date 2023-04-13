@@ -57,11 +57,11 @@
 
 	<!--- permission -->
   <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-  <string>YOUR TEXT</string>
+  <string>현재 위치의 날씨 정보를 확인하기 위해 위치 권한이 필요합니다.</string>
   <key>NSLocationAlwaysUsageDescription</key>
-  <string>YOUR TEXT</string>
+  <string>현재 위치의 날씨 정보를 확인하기 위해 위치 권한이 필요합니다.</string>
   <key>NSLocationWhenInUseUsageDescription</key>
-  <string>YOUR TEXT</string>
+  <string>현재 위치의 날씨 정보를 확인하기 위해 위치 권한이 필요합니다.</string>
 	<!--- ~// permission -->
 </dict>
 </plist>
