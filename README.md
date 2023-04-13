@@ -2,15 +2,21 @@
 
 기존의 웹 애플리케이션으로 개발한 실시간 날씨 사이트 [“날씨어때?”](https://github.com/agaxe/nalssieottae) 를 React Native 를 통해 모바일 애플리케이션으로 개발을 진행하였습니다.
 
-## 시안
-
-[Figma](https://www.figma.com/file/AM9e3KQWYQwjAaRHlJCLww/%EB%82%A0%EC%94%A8%EC%96%B4%EB%95%8C)
-
 ## 사용 기술
 
 - React Native
 - OpenWeatherMap API
 - Kakao API
+
+## 시안
+
+[Figma](https://www.figma.com/file/AM9e3KQWYQwjAaRHlJCLww/%EB%82%A0%EC%94%A8%EC%96%B4%EB%95%8C)
+
+![시안 이미지](https://user-images.githubusercontent.com/54921653/230727678-05fb86de-10cd-413f-971a-4d64c824a7ae.png)
+
+## 구동 영상
+
+https://user-images.githubusercontent.com/54921653/231645983-e93e55c6-1e34-41da-a9ce-092d822f92be.mp4
 
 ## 실행
 
